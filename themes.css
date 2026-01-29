@@ -15,7 +15,7 @@
 .light { 
     background-color: var(--light-orange) !important;
     color: var(--black) !important;
-    background-image: url('shapes/shape10.png') !important; 
+    background-image: url('shapes/shape10_compressed.png') !important; 
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important; 
@@ -24,7 +24,7 @@
 .dark { 
     background-color: var(--orange) !important;
     color: var(--white) !important;
-    background-image: url('shapes/shape10.png') !important; 
+    background-image: url('shapes/shape10_compressed.png') !important; 
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important; 
@@ -33,7 +33,7 @@
 .yellow { 
     background-color: var(--gray-lavender) !important;
     color: var(--black) !important;
-    background-image: url('shapes/shape20.png') !important; 
+    background-image: url('shapes/shape20_compressed.png') !important; 
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important; 
@@ -42,7 +42,7 @@
 .dark-yellow { 
     background-color: var(--light-orange) !important;
     color: var(--white) !important;
-    background-image: url('shapes/shape20.png') !important; 
+    background-image: url('shapes/shape20_compressed.png') !important; 
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important; 
@@ -51,7 +51,7 @@
 .blue { 
     background-color: var(--light-gray) !important;
     color: var(--black) !important;
-    background-image: url('shapes/shape30.png') !important; 
+    background-image: url('shapes/shape30_compressed.png') !important; 
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important; 
@@ -60,7 +60,7 @@
 .dark-blue { 
     background-color: var(--dark-indigo) !important;
     color: var(--white) !important;
-    background-image: url('shapes/shape30.png') !important; 
+    background-image: url('shapes/shape30_compressed.png') !important; 
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important; 
