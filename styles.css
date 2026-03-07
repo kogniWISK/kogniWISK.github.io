@@ -476,6 +476,5 @@ h1 {
     
     .organizer-chip { width: 100%; text-align: center; }
     
-    .logo_uj { top: 10px; left: 10px; }
-    .logo_uj img { max-width: 80px; }
+    .logo_uj { display: none; }
 }
