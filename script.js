@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const sideMenu = document.querySelector(".side-menu");
   // Pobierz główny kontener (zakładając, że to on obsługuje scrollowanie)
   const mainContainer = document.querySelector('main');
+  const root = document.documentElement;
+  const SUN_MIN = 50;
+  const SUN_MAX = 90;
+  const SUN_START = { r: 255, g: 204, b: 0 };
+  const SUN_END = { r: 255, g: 167, b: 6 };
 
   /**
    * Funkcja do animacji tekstu.
@@ -36,6 +41,39 @@ document.addEventListener("DOMContentLoaded", () => {
   function getScrollPosition() {
     return mainContainer ? mainContainer.scrollTop : window.scrollY;
   }
+
+  function updateSunScale() {
+    const maxScroll = mainContainer
+      ? (mainContainer.scrollHeight - mainContainer.clientHeight)
+      : (document.documentElement.scrollHeight - window.innerHeight);
+
+    const progress = maxScroll > 0
+      ? Math.min(Math.max(getScrollPosition() / maxScroll, 0), 1)
+      : 0;
+
+    const sunSize = SUN_MIN + (SUN_MAX - SUN_MIN) * progress;
+    const sunR = Math.round(SUN_START.r + (SUN_END.r - SUN_START.r) * progress);
+    const sunG = Math.round(SUN_START.g + (SUN_END.g - SUN_START.g) * progress);
+    const sunB = Math.round(SUN_START.b + (SUN_END.b - SUN_START.b) * progress);
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const sunTintAlpha = isMobile
+      ? (0.03 + (0.15 * progress))
+      : (0.08 + (0.42 * progress));
+    const sunTintAlphaMid = sunTintAlpha * 0.55;
+    const sunTintAlphaLow = sunTintAlpha * 0.18;
+    const viewportMin = Math.min(window.innerWidth, window.innerHeight);
+    const sunGlowSize = (sunSize / 100) * viewportMin;
+
+    root.style.setProperty('--sun-size', `${sunSize.toFixed(2)}%`);
+    root.style.setProperty('--sun-r', `${sunR}`);
+    root.style.setProperty('--sun-g', `${sunG}`);
+    root.style.setProperty('--sun-b', `${sunB}`);
+    root.style.setProperty('--sun-tint-alpha', `${sunTintAlpha.toFixed(3)}`);
+    root.style.setProperty('--sun-tint-alpha-mid', `${sunTintAlphaMid.toFixed(3)}`);
+    root.style.setProperty('--sun-tint-alpha-low', `${sunTintAlphaLow.toFixed(3)}`);
+    root.style.setProperty('--sun-glow-size', `${sunGlowSize.toFixed(1)}px`);
+  }
+
 
   // Zmienna do przechowywania ostatnio aktywnej sekcji
   let lastActiveSection = null;
@@ -106,7 +144,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // Dodaj obsługę kliknięć dla linków w menu bocznym
   menuLinks.forEach(link => {
     link.addEventListener("click", (e) => {
-      e.preventDefault(); // Zapobiegnij domyślnej akcji (przewijaniu)
+      const href = link.getAttribute("href");
+
+      // Obsługuj przewijanie tylko dla linków kotwiczących na tej samej stronie
+      if (!href || !href.startsWith("#")) {
+        return;
+      }
+
+      e.preventDefault();
 
       // Usuń klasę 'active' ze wszystkich linków menu
       menuLinks.forEach(menuLink => menuLink.classList.remove('active'));
@@ -114,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
       link.classList.add('active');
 
       // Pobierz id sekcji docelowej z atrybutu href
-      const targetId = link.getAttribute("href").substring(1);
+      const targetId = href.substring(1);
       const targetSection = document.getElementById(targetId); // Pobierz element sekcji docelowej
 
       // Jeśli sekcja docelowa istnieje, przewiń do niej płynnie
@@ -134,12 +179,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (scrollTimeout) {
       window.cancelAnimationFrame(scrollTimeout);
     }
-    // Zaplanuj aktualizację aktywnej sekcji na następną klatkę animacji
-    scrollTimeout = requestAnimationFrame(updateActiveSection);
+    // Zaplanuj aktualizacje na następną klatkę animacji
+    scrollTimeout = requestAnimationFrame(() => {
+      updateActiveSection();
+      updateSunScale();
+    });
   });
 
   // Wywołaj początkową aktualizację po załadowaniu strony
   updateActiveSection();
+  updateSunScale();
+  window.addEventListener('resize', updateSunScale);
 });
 
 // Drugi blok kodu wykonywany po załadowaniu DOM, obsługujący menu hamburgerowe

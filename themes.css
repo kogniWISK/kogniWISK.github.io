@@ -8,59 +8,72 @@
   --dark-cyan: #114949;
   --dark-indigo: #1f1942;
   --light-gray: #A5A4A4;
+  --light-blue:  #A4CBEC;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --translucent-white: rgba(255, 255, 255, 0.95);
+  --sun-r: 255;
+  --sun-g: 204;
+  --sun-b: 0;
+  --sun-tint-alpha: 0.12;
+  --sun-tint-alpha-mid: 0.07;
+  --sun-tint-alpha-low: 0.03;
+  --sun-glow-size: 320px;
 }
 
-.light { 
+.sunrise { 
+    background-color: var(--light-blue) !important;
+    color: var(--white) !important;
+    background-image: url('shapes/drzewa.png'), url('shapes/29_2.png'), radial-gradient(circle, rgba(var(--sun-r), var(--sun-g), var(--sun-b), var(--sun-tint-alpha, 0.12)) 0%, rgba(var(--sun-r), var(--sun-g), var(--sun-b), var(--sun-tint-alpha-mid, 0.07)) 42%, rgba(var(--sun-r), var(--sun-g), var(--sun-b), var(--sun-tint-alpha-low, 0.03)) 70%, rgba(var(--sun-r), var(--sun-g), var(--sun-b), 0) 92%), url('images/logo_sun_dark.png'), url('shapes/9.png') !important;
+    background-size: cover, cover, calc(var(--sun-glow-size, 320px) * 0.4) calc(var(--sun-glow-size, 320px) * 0.4), calc(var(--sun-size, 80%) * 0.4) auto, cover !important;
+    background-position: center bottom, center bottom, center bottom 20%, center bottom 20%, center bottom !important;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat !important;
+    background-blend-mode: normal, normal, normal, normal, screen !important;
+}
+
+.trees_light_orange { 
     background-color: var(--light-orange) !important;
     color: var(--black) !important;
-    background-image: url('shapes/shape10_compressed.png') !important; 
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important; 
+    background-image: url('shapes/drzewa.png'), url('shapes/29_2.png'), radial-gradient(circle, rgba(var(--sun-r), var(--sun-g), var(--sun-b), var(--sun-tint-alpha, 0.12)) 0%, rgba(var(--sun-r), var(--sun-g), var(--sun-b), var(--sun-tint-alpha-mid, 0.07)) 42%, rgba(var(--sun-r), var(--sun-g), var(--sun-b), var(--sun-tint-alpha-low, 0.03)) 70%, rgba(var(--sun-r), var(--sun-g), var(--sun-b), 0) 92%), url('images/logo_sun.png'), url('shapes/9.png') !important;
+    background-size: cover, cover, var(--sun-glow-size, 320px) var(--sun-glow-size, 320px), var(--sun-size, 50%) auto, cover !important;
+    background-position: center bottom, center bottom, center 78%, center 78%, center bottom !important;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat !important;
+    background-blend-mode: normal, normal, normal, normal, screen !important;
 }
 
-.dark { 
+.light_mountains { 
+    background-color: var(--light-orange) !important;
+    color: var(--black) !important;
+    background-image:  url('shapes/29_1.png'), radial-gradient(circle, rgba(var(--sun-r), var(--sun-g), var(--sun-b), var(--sun-tint-alpha, 0.12)) 0%, rgba(var(--sun-r), var(--sun-g), var(--sun-b), var(--sun-tint-alpha-mid, 0.07)) 42%, rgba(var(--sun-r), var(--sun-g), var(--sun-b), var(--sun-tint-alpha-low, 0.03)) 70%, rgba(var(--sun-r), var(--sun-g), var(--sun-b), 0) 92%), url('images/logo_sun.png'), url('shapes/9.png') !important;
+    background-size: cover, var(--sun-glow-size, 320px) var(--sun-glow-size, 320px), var(--sun-size, 60%) auto, cover !important;
+    background-position: center bottom, center 78%, center 78%, center bottom !important;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat !important;
+    background-blend-mode: normal, normal, normal, screen !important;
+}
+
+.trees_sunset { 
     background-color: var(--orange) !important;
     color: var(--white) !important;
-    background-image: url('shapes/shape10_compressed.png') !important; 
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important; 
+    background-image: url('shapes/drzewa.png'), url('shapes/29_2.png'), radial-gradient(circle, rgba(255, 167, 6, var(--sun-tint-alpha, 0.12)) 0%, rgba(255, 167, 6, var(--sun-tint-alpha-mid, 0.07)) 42%, rgba(255, 167, 6, var(--sun-tint-alpha-low, 0.03)) 70%, rgba(255, 167, 6, 0) 92%), url('images/logo_sun_dark.png'), url('shapes/9.png') !important;
+    background-size: cover, cover, var(--sun-glow-size, 320px) var(--sun-glow-size, 320px), var(--sun-size, 80%) auto, cover !important;
+    background-position: center bottom, center bottom, center 78%, center 78%, center bottom !important;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat !important;
+    background-blend-mode: normal, normal, normal, normal, screen !important;
 }
 
-.yellow { 
+.lavender_mountains { 
     background-color: var(--gray-lavender) !important;
-    color: var(--black) !important;
-    background-image: url('shapes/shape20_compressed.png') !important; 
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important; 
-}
-
-.dark-yellow { 
-    background-color: var(--light-orange) !important;
     color: var(--white) !important;
-    background-image: url('shapes/shape20_compressed.png') !important; 
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important; 
+    background-image: url('shapes/drzewa.png'), url('shapes/29_2.png'), radial-gradient(circle, rgba(var(--sun-r), var(--sun-g), var(--sun-b), var(--sun-tint-alpha, 0.12)) 0%, rgba(var(--sun-r), var(--sun-g), var(--sun-b), var(--sun-tint-alpha-mid, 0.07)) 42%, rgba(var(--sun-r), var(--sun-g), var(--sun-b), var(--sun-tint-alpha-low, 0.03)) 70%, rgba(var(--sun-r), var(--sun-g), var(--sun-b), 0) 92%), url('images/logo_sun_dark.png'), url('shapes/9.png') !important;
+    background-size: cover, cover, var(--sun-glow-size, 320px) var(--sun-glow-size, 320px), var(--sun-size, 90%) auto, cover !important;
+    background-position: center bottom, center bottom, center 78%, center 78%, center bottom !important;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat !important;
+    background-blend-mode: normal, normal, normal, normal, screen !important;
 }
 
-.blue { 
-    background-color: var(--light-gray) !important;
-    color: var(--black) !important;
-    background-image: url('shapes/shape30_compressed.png') !important; 
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important; 
-}
-
-.dark-blue { 
+.dark_indigo_waves { 
     background-color: var(--dark-indigo) !important;
     color: var(--white) !important;
-    background-image: url('shapes/shape30_compressed.png') !important; 
+    background-image: url('shapes/28.png') !important; 
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important; 
@@ -68,3 +81,31 @@
 
 
 
+
+.indigo_trees { 
+    background-color: var(--dark-indigo) !important;
+    color: var(--white) !important;
+    background-image: url('shapes/drzewa.png'), url('shapes/29_2.png'), radial-gradient(circle, rgba(var(--sun-r), var(--sun-g), var(--sun-b), var(--sun-tint-alpha, 0.12)) 0%, rgba(var(--sun-r), var(--sun-g), var(--sun-b), var(--sun-tint-alpha-mid, 0.07)) 42%, rgba(var(--sun-r), var(--sun-g), var(--sun-b), var(--sun-tint-alpha-low, 0.03)) 70%, rgba(var(--sun-r), var(--sun-g), var(--sun-b), 0) 92%), url('images/logo_sun_dark.png'), url('shapes/9.png') !important;
+    background-size: cover, cover, var(--sun-glow-size, 320px) var(--sun-glow-size, 320px), var(--sun-size, 80%) auto, cover !important;
+    background-position: center bottom, center bottom, center 78%, center 78%, center bottom !important;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat !important;
+    background-blend-mode: normal, normal, normal, normal, screen !important;
+}
+
+.light_neurons { 
+    background-color: var(--dark-indigo) !important;
+    color: var(--white) !important;
+    background-image: url('shapes/11.png') !important; 
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important; 
+}
+
+.dark_cyan_waves { 
+    background-color: var(--dark-cyan) !important;
+    color: var(--white) !important;
+    background-image: url('shapes/32.png') !important; 
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important; 
+}
