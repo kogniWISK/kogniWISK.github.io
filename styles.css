@@ -63,7 +63,7 @@
     box-shadow: -5px 0 10px var(--shadow-color);
 }
 
-body:not(.terminarz-page) .side-menu {
+body:not(.terminarz-page):not(.prelegenci-page) .side-menu {
     border-left-color: var(--dark-indigo);
 }
 
@@ -151,20 +151,25 @@ main::-webkit-scrollbar {
     font-weight: 700;
 }
 
-.terminarz-page .side-menu {
+.terminarz-page .side-menu,
+.prelegenci-page .side-menu {
     background: var(--dark-indigo);
 }
 
 .terminarz-page .side-menu .title,
-.terminarz-page .side-menu a {
+.prelegenci-page .side-menu .title,
+.terminarz-page .side-menu a,
+.prelegenci-page .side-menu a {
     color: var(--white);
 }
 
-.terminarz-page .side-menu a.active {
+.terminarz-page .side-menu a.active,
+.prelegenci-page .side-menu a.active {
     color: var(--orange);
 }
 
-.terminarz-page .menu-terminarz a {
+.terminarz-page .menu-terminarz a,
+.prelegenci-page .menu-terminarz a {
     background-color: var(--orange);
 }
 
@@ -192,7 +197,8 @@ h1 {
     text-align: left;
 }
 
-.terminarz-page h1 {
+.terminarz-page h1,
+.prelegenci-page h1 {
     text-align: center;
 }
 
@@ -207,6 +213,26 @@ h1 {
     width: auto;
     max-width: 900px;
     margin: 0 auto; /* Wyśrodkowanie domyślne */
+}
+
+.scrollable-cloud {
+    max-height: 60vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}
+
+.scrollable-cloud::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollable-cloud::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollable-cloud::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
 }
 
 .section-right .content-cloud {
