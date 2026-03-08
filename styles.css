@@ -184,6 +184,7 @@ main::-webkit-scrollbar {
     align-items: flex-start;
     padding: 160px 80px 60px 80px; /* Zwiększony padding góra (ze 60px na 160px) */
     scroll-snap-align: start;
+    scroll-snap-stop: always; /* Zapobiega przeskakiwaniu wielu sekcji naraz */
 }
 
 h1 {
@@ -480,7 +481,10 @@ h1 {
 
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
-    main { width: 100%; }
+    main { 
+        width: 100%; 
+        scroll-snap-type: y proximity; /* Mniejszy opór, brak wymuszonego przeskoku przy małym ruchu */
+    }
     .side-menu { right: -100%; transition: 0.3s; width: 80%; }
     .side-menu.active { right: 0; }
     .hamburger-menu { display: block; }
