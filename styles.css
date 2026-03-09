@@ -485,15 +485,29 @@ h1 {
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
     main {
-        width: calc(100vw - 250px);
+        width: 100% !important; 
+        scroll-snap-type: y proximity;
         height: 100vh;
         overflow-y: auto; /* Zmienione ze scroll */
-        scroll-snap-type: y mandatory;
         scrollbar-width: none;
     }
-    .side-menu { right: -100%; transition: 0.3s; width: 80%; }
-    .side-menu.active { right: 0; }
-    .hamburger-menu { display: block; }
+    .side-menu { 
+        position: fixed !important;
+        right: -100% !important; 
+        left: auto !important;
+        width: 80% !important;
+        transition: right 0.3s ease-in-out !important;
+        display: block !important; /* Upewniamy się, że nie jest ukryte całkowicie */
+    }
+
+    .side-menu.active { 
+        right: 0 !important; 
+    }
+
+    .hamburger-menu { 
+        display: block !important; 
+        z-index: 1100 !important;
+    }
     
     .section {
         padding: 100px 20px 40px 20px;

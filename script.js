@@ -193,23 +193,28 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Drugi blok kodu wykonywany po załadowaniu DOM, obsługujący menu hamburgerowe
+// Poprawiona obsługa menu hamburgerowego
 document.addEventListener("DOMContentLoaded", () => {
-  // Pobierz element menu hamburgerowego
   const hamburger = document.querySelector(".hamburger-menu");
-  // Pobierz element menu bocznego
   const sideMenu = document.querySelector(".side-menu");
 
-  // Dodaj obsługę kliknięcia dla menu hamburgerowego
-  hamburger.addEventListener("click", () => {
-    // Przełącz klasę 'active' na menu bocznym (pokaż/ukryj)
+  // Otwieranie/Zamykanie po kliknięciu w ikonę
+  hamburger.addEventListener("click", (e) => {
+    e.stopPropagation(); // Zapobiega błędom propagacji
     sideMenu.classList.toggle("active");
   });
 
-  // Dodaj obsługę kliknięć dla linków w menu bocznym (dla zamknięcia menu po kliknięciu)
+  // Zamykanie menu po kliknięciu w dowolny link wewnątrz menu
   document.querySelectorAll(".side-menu a").forEach(link => {
     link.addEventListener("click", () => {
-      // Usuń klasę 'active' z menu bocznego (ukryj menu)
       sideMenu.classList.remove("active");
     });
+  });
+
+  // Dodatkowo: zamknij menu, jeśli użytkownik kliknie gdziekolwiek poza nim
+  document.addEventListener("click", (e) => {
+    if (!sideMenu.contains(e.target) && !hamburger.contains(e.target)) {
+      sideMenu.classList.remove("active");
+    }
   });
 });
