@@ -308,11 +308,11 @@ h1 {
 }
 
 .organizer-chip.promo { background: linear-gradient(135deg, rgba(255, 140, 66, 0.8), rgba(255, 107, 107, 0.8)); }
-.organizer-chip.logi { background: linear-gradient(135deg, rgba(62, 124, 124, 0.8), rgba(17, 103, 103, 0.8)); }
+.organizer-chip.logi { background: linear-gradient(135deg, rgba(230, 187, 188, 1 0.8), rgba(17, 103, 103, 0.8)); }
 .organizer-chip.docs { background: linear-gradient(135deg, rgba(140, 123, 158, 0.8), rgba(106, 17, 203, 0.8)); }
 .organizer-chip.finance { background: linear-gradient(135deg, rgba(30, 132, 73, 0.8), rgba(11, 82, 46, 0.8)); }
 .organizer-chip.it { background: linear-gradient(135deg, rgba(31, 25, 66, 0.8), rgba(63, 94, 251, 0.8)); }
-.organizer-chip.science { background: linear-gradient(135deg, rgba(192, 57, 43, 0.8), rgba(146, 43, 33, 0.8)); }
+.organizer-chip.science { background: linear-gradient(135deg, rgba(203, 254, 239, 0.8), rgba(146, 43, 33, 0.8)); }
 
 /* PRELEGENCI */
 .speakers-container {
@@ -528,3 +528,4 @@ h1 {
     
     .logo_uj { display: none; }
 }
+
