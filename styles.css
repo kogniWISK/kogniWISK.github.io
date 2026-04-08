@@ -173,6 +173,66 @@ main::-webkit-scrollbar {
     background-color: var(--orange);
 }
 
+    /* --- NOWE STYLE TERMINARZA --- */
+
+/* Zwiększenie odstępów między głównymi punktami */
+/* Zwiększenie odstępów między głównymi punktami programu */
+.schedule-list {
+    list-style: none;
+    padding: 0;
+}
+
+.schedule-list > li {
+    margin-bottom: 25px; /* Duży odstęp między informacjami */
+    line-height: 1.4;
+}
+
+/* Stylizacja godzin */
+.schedule-list li span:first-child {
+    display: inline-block;
+    min-width: 130px; /* Wyrównanie godzin w pionie */
+    color: var(--dark-indigo);
+    opacity: 0.9;
+}
+
+/* Sekcja prelegentów pod Panelem */
+.speakers-list {
+    margin-top: 10px;
+    padding-left: 120px; /* Przesunięcie, by tekst był pod nazwą Panelu, nie pod godziną */
+    border-left: 2px solid var(--orange); /* Akcent kolorystyczny */
+    margin-left: 10px;
+}
+
+.speaker-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.speaker-row .name {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--white);
+}
+
+.speaker-row .topic {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: hsl(0, 0%, 97%);
+}
+
+/* Responsywność dla urządzeń mobilnych */
+@media (max-width: 768px) {
+    .schedule-list li span:first-child {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .speakers-list {
+        padding-left: 15px;
+        margin-left: 0;
+    }
+}
+
 /* SEKACJE */
 .section {
     position: relative;
@@ -527,5 +587,9 @@ h1 {
     .organizer-chip { width: 100%; text-align: center; }
     
     .logo_uj { display: none; }
+
+    
+
+
 }
 
