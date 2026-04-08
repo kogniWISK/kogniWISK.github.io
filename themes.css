@@ -109,3 +109,14 @@
     background-position: center !important;
     background-repeat: no-repeat !important; 
 }
+
+.lavender_waves { 
+    background-color: var(--gray-lavender) !important;
+    color: var(--white) !important;
+    background-image: url('shapes/32.png') !important; 
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important; 
+}
+
+
